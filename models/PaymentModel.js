@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const postcategoryschema = new mongoose.Schema({
+const postpaymentschema = new mongoose.Schema({
    
     name:{
         type:String,
@@ -30,4 +30,4 @@ const postcategoryschema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('CategoryManagement',postcategoryschema);
+module.exports = mongoose.model('PaymentManagement',postpaymentschema);

@@ -17,13 +17,16 @@ const postRent = require('./routes/RentRoute');
 const postfinance = require('./routes/FinanceRoute');
 const postcategory = require('./routes/CategoryRoute');
 const postreturn = require('./routes/ReturnRoute');
+const postsupplier = require('./routes/SupplierRoute');
+const poststock = require('./routes/StockRoute');
+const postorder = require('./routes/OrderRoute');
+const postpayment = require('./routes/PaymentRoute');
 
 //app middelware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cors());
-
 
 //routes middelware
 app.use(postDelivery);
@@ -35,6 +38,10 @@ app.use(postRent);
 app.use(postfinance);
 app.use(postcategory);
 app.use(postreturn);
+app.use(postsupplier);
+app.use(poststock);
+app.use(postorder);
+app.use(postpayment);
 
 
 app.get("/",(req,res)=>{

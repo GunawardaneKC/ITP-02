@@ -1,13 +1,13 @@
 const express = require('express');
 
-const Postcategory = require('../models/CategoryModel')
+const Postsupplier = require('../models/SupplierModel')
 
 const router = express.Router();
 
 //save posts
 
-router.post('/category/save',(req,res)=>{
-    let newPost = new Postcategory(req.body);
+router.post('/supplier/save',(req,res)=>{
+    let newPost = new Postsupplier(req.body);
 
     newPost.save((err)=>{
         if(err){
@@ -23,8 +23,8 @@ router.post('/category/save',(req,res)=>{
 
 //get posts
 
-router.get('/category',(req,res)=>{
-    Postcategory.find().exec((err,postsRepair)=>{
+router.get('/supplier',(req,res)=>{
+    Postsupplier.find().exec((err,postsRepair)=>{
         if(err){
             return res.status(400).json({
                 error:err
@@ -40,8 +40,8 @@ router.get('/category',(req,res)=>{
 
 //update Posts
 
-router.put('/category/update/:id',(req,res)=>{
-    Postcategory.findByIdAndUpdate(
+router.put('/supplier/update/:id',(req,res)=>{
+    Postsupplier.findByIdAndUpdate(
         req.params.id,
         {
             $set:req.body
@@ -62,8 +62,8 @@ router.put('/category/update/:id',(req,res)=>{
 
 //delete post
 
-router.delete('/category/delete/:id',(req,res)=>{
-    Postcategory.findByIdAndRemove(req.params.id).exec((err,deletedRepair)=>{
+router.delete('/supplier/delete/:id',(req,res)=>{
+    Postsupplier.findByIdAndRemove(req.params.id).exec((err,deletedRepair)=>{
         if(err)
             return res.status(400).json({
                 massage:"Delete unsuccesful",err
